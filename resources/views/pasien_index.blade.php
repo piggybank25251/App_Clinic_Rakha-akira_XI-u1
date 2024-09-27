@@ -8,17 +8,22 @@
                     <div class="card-header">Form Pasien</div>
                     <div class="card-body">
                         <h3>Data pasien</h3>
-                        <div class="row mb-3 mt-3">
+                            <div class="row mb-3 mt-3">
                             <div class="col-md-6">
-                                <a href="/pasien/create" class="btn btn-primary btn-sm">Tambah Pasien</a>
+                            <a href="/pasien/create" class="btn btn-primary btn-sm">Tambah Pasien</a>
                             </div>
-                        </div>
-                        <table class="table table-striped">
+                    </div>
+                    <table class="table table-striped">
                             <thead>
                                 <tr>
                                     <th>NO</th>
                                     <th>No Pasien</th>
                                     <th>Nama</th>
+                                    <th>Jenis kelamin</th>
+                                    <th>Umur</th>
+                                    <th>foto</th>
+                                    <th>Alamat</th>
+                                    <th>Aksi</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -31,12 +36,9 @@
                                         </td>
                                         <td>{{ $item->jenis_kelamin }}</td>
                                         <td>{{ $item->umur }}</td>
-                                        <td>{{ $item->foto }}</td>
+                                        <td><img src="{{ asset('storage/images/' . $item->foto) }}"" alt=""></td>
                                         <td>{{ $item->alamat }}</td>
-                                        <td>
-                                            <button type="button" class="btn btn-warning">Edit</button>
-                                            <button type="button" class="btn btn-danger">Remove</button>
-                                        </td>
+                                        <td>Edit | Hapus</td>
                                     </tr>
                                 @endforeach
                             </tbody>
