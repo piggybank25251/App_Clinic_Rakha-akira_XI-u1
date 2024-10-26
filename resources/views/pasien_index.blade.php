@@ -1,5 +1,5 @@
 <div>
-    @extends('layouts.app', ['title' => 'Data Pasien'])
+    @extends('layouts.app_modern', ['title' => 'Data Pasien'])
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
@@ -38,7 +38,10 @@
                                         </td>
                                         <td>{{ $item->jenis_kelamin }}</td>
                                         <td>{{ $item->umur }}</td>
-                                        <td>{{ $item->foto }}</td>
+                                        @php
+                                        $foto = $item->foto ? $item->foto : '0.png';
+                                        @endphp
+                                        <td><img src="{{ asset('storage/images/' . $foto) }}" width="100"></td>
                                         <td>{{ $item->alamat }}</td>
                                         <td>
                                             <a href="/pasien/{{ $item->id }}/edit" class="btn btn-warning btn-sm ml-2">
